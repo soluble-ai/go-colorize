@@ -1,5 +1,8 @@
 # go-colorize
 
+[![GoDoc](https://godoc.org/github.com/soluble-ai/go-colorize?status.svg)](https://godoc.org/github.com/soluble-ai/go-colorize)
+[![Go Report Card](https://goreportcard.com/badge/github.com/soluble-ai/go-colorize)](https://goreportcard.com/report/github.com/soluble-ai/go-colorize)
+
 Go from this:
 
 ```go
