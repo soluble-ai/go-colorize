@@ -64,15 +64,15 @@ func NewStyle(attributes ...color.Attribute) *Style {
 
 // Styles maps style names to styles
 var Styles = map[string]*Style{
-	"primary":      NewStyle(color.FgHiBlue),
-	"secondary":    NewStyle(color.FgBlue),
+	"primary":      NewStyle(color.FgBlue),
+	"secondary":    NewStyle(color.FgMagenta),
 	"light":        NewStyle(color.BgHiBlack),
 	"info":         nil,
 	"success":      NewStyle(color.FgGreen),
 	"warning":      NewStyle(color.FgYellow),
 	"danger":       NewStyle(color.FgHiRed),
-	"bg-primary":   NewStyle(color.FgHiWhite, color.BgHiBlue),
-	"bg-secondary": NewStyle(color.FgHiWhite, color.BgBlue),
+	"bg-primary":   NewStyle(color.FgHiWhite, color.BgBlue),
+	"bg-secondary": NewStyle(color.FgHiWhite, color.BgMagenta),
 	"bg-success":   NewStyle(color.FgHiWhite, color.BgGreen),
 	"bg-warning":   NewStyle(color.FgBlack, color.BgYellow),
 	"bg-danger":    NewStyle(color.FgBlack, color.BgHiRed),
