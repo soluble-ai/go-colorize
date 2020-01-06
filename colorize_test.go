@@ -16,28 +16,36 @@ package colorize
 
 import (
 	"fmt"
-	"github.com/fatih/color"
-	"sort"
 	"strings"
 	"testing"
+	"time"
+
+	"github.com/fatih/color"
 )
 
 func TestDemoDefaults(t *testing.T) {
-	t.SkipNow()
+	//t.SkipNow()
 	var template strings.Builder
 	params := make([]interface{}, 0, len(Styles))
-	names := make([]string, 0, len(Styles))
-	for k := range Styles {
-		names = append(names, k)
+	names := []string{
+		"primary", "secondary", "info", "light", "success", "warning", "danger",
 	}
-	sort.Strings(names)
 	for _, k := range names {
-		template.WriteString(fmt.Sprintf("{%s: %%12s }\n", k))
+		template.WriteString(fmt.Sprintf("{%s: %%12s } ", k))
 		params = append(params, k)
+		k = "bg-" + k
+		if _, ok := Styles[k]; ok {
+			template.WriteString(fmt.Sprintf("{%s: %%12s }", k))
+			params = append(params, k)
+		}
+		template.WriteString("\n")
 	}
+	fmt.Println()
 	Colorize(template.String(), params...)
-	Colorize("\n{primary:%s} eat {bg-success:pizza :pizza:}{bg-primary: and drink }{warning:beer} %s, but not {bg-danger:%s}\n\n",
-		"Most folks like to", ":beer:", "everyone")
+	fmt.Println()
+	Colorize("{info:[INFO]} {secondary:%s} {primary:%s}\n",
+		time.Now().Format(time.RFC3339), "hello, world")
+	fmt.Println()
 }
 
 func TestBasic(t *testing.T) {
